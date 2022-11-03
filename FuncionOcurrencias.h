@@ -15,7 +15,36 @@
 
 using namespace std;
 
+/* Code to sort array using shell sort */
+void shellsort(int arrn[], std::string arrc[], int cantp)
+{
+    int i = 0, j = 0, k = 0, mid = 0;
+    std::string midn;
+    for (k = cantp / 2;k > 0;k /= 2)
+    {
+        for (j = k;j < cantp;j++)
+        {
+            for (i = j - k;i >= 0;i -= k)
+            {
+                if (arrn[i + k] >= arrn[i])
+                {
+                    break;
+                }
+                else
+                {
+                    mid = arrn[i];
+                    midn=arrc[i];
+                    arrn[i] = arrn[i + k];
+                    arrc[i]=arrc[i+k];
+                    arrn[i + k] = mid;
+                    arrc[i+k]=midn;
 
+                }
+            }
+        }
+    }
+    return;
+}
 
 //transformo los caracteres de la clave en numeros
 unsigned int miHashFunc(string clave)
@@ -70,7 +99,8 @@ cantrepetidas=TH.arregloconclaves(arrc, cantrepetidas); //corregir esto
 TH.arregloconocurrencias(arrn);
 
 cout<<"ahora cantidad de repetidas: "<<cantrepetidas<<endl;
-quickSort(arrn, arrc,   0, cantp-1);
+//quickSort(arrn, arrc,   0, cantp-1);
+shellsort(arrn, arrc, cantp);
 cout<< "ORDENADO"<<endl;
     cout<<"n "<<n<<endl;
 //cantp=cantp-cantrepetidas;
@@ -95,5 +125,6 @@ else if (n>0 && n<cantp)
 }
 
 }
+
 
 #endif //PARCIAL2_SIMESVARTANIAN_FUNCIONOCURRENCIAS_H

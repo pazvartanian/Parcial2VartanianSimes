@@ -287,9 +287,10 @@ template<class T> void Lista<T>::ocurrencias(std::string clave) {
       //  std::cout<<" el primer nodo de la lista es "<<nodorecorrer->getDato()<<std::endl;
         //std::cout<<" y la clave que quiero ingresar ahora es: "<<clave<<std::endl;
         //si sale del while quiere decir q llego al final de la lista o q llego al nodo anterior al del dato
-        if (nodorecorrer->getDato() == clave) //si el dato del siguiente es igual a la clave
+        if (nodorecorrer->getDato() == clave && nodorecorrer->getSiguiente()!= nullptr) //si el dato del siguiente es igual a la clave
         {
-            nodorecorrer->setOcurr(nodorecorrer->getSiguiente()->getOcurr() + 1);
+                nodorecorrer->setOcurr(nodorecorrer->getSiguiente()->getOcurr() + 1);
+
         } else if (nodorecorrer->getDato() != clave) {
           //  std::cout<<"el siguiente es null y "<<std::endl;
             insertarUltimo(clave, 1);

@@ -35,12 +35,12 @@ unsigned int miHashFunc3(string clave)
 void Excluir (std::string palabra)
 {
     cout<<"ENTRO A EXCLUIR UNA O UNAS PALABRAS"<<endl;
-    string filename = "C:\\Users\\Usuario\\Documents\\2do UCC\\Parcial2-SimesVartanian\\texto";
+    string filename = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\texto";
     std::ifstream file;
     file.open(filename,std::ios::in);
     int cantp;
     //ver como tener la cant de palabras
-    cantp = 34;
+    cantp = cantpalabras(filename);
 
 
     HashMap<std::string, int> TH(cantp, &miHashFunc3);
@@ -52,7 +52,7 @@ void Excluir (std::string palabra)
 
             std::stringstream lineStream(linea);
             while (std::getline(lineStream, word, ' ')) {
-
+                word= corregirPalabra(word);
                 TH.put(word, 1);
 
             }
@@ -69,7 +69,7 @@ void Excluir (std::string palabra)
     cantrepetidas=TH.arregloconclaves(arrc, cantrepetidas);
     TH.arregloconocurrencias(arrn);
 
-    quickSort3(arrn, arrc,   0, cantp-1);
+    quickSort(arrn, arrc,   0, cantp-1);
 
 
 
@@ -78,47 +78,8 @@ cout<<" la palabra q no se puede poner es "<<palabra<<endl;
         {
             if (arrn[i]!=-1 && arrc[i]!=palabra)
                 cout<<"CLAVE "<<arrc[i]<<" OCURRENCIAS: "<<arrn[i]<<endl;
-
         }
 
 }
-void swap3(int arr[] , int pos1, int pos2){
-    int temp;
-    temp = arr[pos1];
-    arr[pos1] = arr[pos2];
-    arr[pos2] = temp;
-}
-void swap23(std::string arr[] , int pos1, int pos2){
-    std::string temp;
-    temp = arr[pos1];
-    arr[pos1] = arr[pos2];
-    arr[pos2] = temp;
-}
 
-int partition3(int arr[], std::string arrc[],  int low, int high, int pivot){
-    int i = low;
-    int j = low;
-    while( i <= high){
-        if(arr[i] > pivot){
-            i++;
-        }
-        else{
-            swap3(arr,i,j);
-            swap23(arrc, i, j);
-            i++;
-            j++;
-        }
-    }
-    return j-1;
-}
-
-void quickSort3(int arr[], std::string arrc[],  int low, int high){
-    if(low < high){
-        int pivot = arr[high];
-        int pos = partition(arr, arrc,  low, high, pivot);
-
-        quickSort3(arr, arrc, low, pos-1);
-        quickSort3(arr,arrc,  pos+1, high);
-    }
-}
 #endif //PARCIAL2_SIMESVARTANIAN_OCURRENCIASEXCLUIRPALABRAS_H

@@ -30,6 +30,8 @@ public:
 
     void inorder();
 
+    void inordern(int n, int cont);
+
     void postorder();
 
     ~ArbolBinario();
@@ -49,6 +51,7 @@ private:
     NodoArbol<T> *findMaxAndRemove(NodoArbol<T> *r, bool *found);
     void preorder(NodoArbol<T> *r);
     void inorder(NodoArbol<T> *r);
+    void inordern(NodoArbol<T> *r, int n, int cont);
     void postorder(NodoArbol<T> *r);
     int contarPorNivel(int nivel, NodoArbol<T> *auxNodo);
     bool palabraRepetida (NodoArbol<T> *r, string palabra);
@@ -305,6 +308,27 @@ void ArbolBinario<T>::inorder(NodoArbol<T> *r)
     inorder(r->getLeft());
     std::cout << r->getData() << " ";
     inorder(r->getRight());
+}
+//nuevo metodo para cuandan mandan una cant de palabras n
+template <class T>
+void ArbolBinario<T>::inordern(int cont, int n )
+{
+    inordern(root, cont, n);
+    std::cout << std::endl;
+}
+
+template <class T>
+void ArbolBinario<T>::inordern(NodoArbol<T> *r, int n, int cont)
+{
+
+    if (r == nullptr || cont==n)
+    {
+        return;
+    }
+
+    inordern(r->getLeft(), n, cont++);
+    std::cout << r->getData() << " ";
+    inordern(r->getRight());
 }
 
 /**

@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = C$:/Users/Usuario/Documents/2do$ UCC/Parcial2-SimesVartanian/cmake-build-debug/
+cmake_ninja_workdir = C$:/Users/Usuario/Desktop/parcial$ 2/Parcial2VartanianSimes/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target Parcial2_SimesVartanian
 
@@ -49,7 +49,7 @@ cmake_ninja_workdir = C$:/Users/Usuario/Documents/2do$ UCC/Parcial2-SimesVartani
 
 build cmake_object_order_depends_target_Parcial2_SimesVartanian: phony || CMakeFiles/Parcial2_SimesVartanian.dir
 
-build CMakeFiles/Parcial2_SimesVartanian.dir/main.cpp.obj: CXX_COMPILER__Parcial2_SimesVartanian_Debug C$:/Users/Usuario/Documents/2do$ UCC/Parcial2-SimesVartanian/main.cpp || cmake_object_order_depends_target_Parcial2_SimesVartanian
+build CMakeFiles/Parcial2_SimesVartanian.dir/main.cpp.obj: CXX_COMPILER__Parcial2_SimesVartanian_Debug C$:/Users/Usuario/Desktop/parcial$ 2/Parcial2VartanianSimes/main.cpp || cmake_object_order_depends_target_Parcial2_SimesVartanian
   DEP_FILE = CMakeFiles\Parcial2_SimesVartanian.dir\main.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\Parcial2_SimesVartanian.dir
@@ -81,7 +81,7 @@ build Parcial2_SimesVartanian.exe: CXX_EXECUTABLE_LINKER__Parcial2_SimesVartania
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\Usuario\Documents\2do UCC\Parcial2-SimesVartanian\cmake-build-debug" && "C:\Users\Usuario\AppData\Local\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\Usuario\Desktop\parcial 2\Parcial2VartanianSimes\cmake-build-debug" && "C:\Users\Usuario\AppData\Local\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -92,7 +92,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "C:\Users\Usuario\Documents\2do UCC\Parcial2-SimesVartanian\cmake-build-debug" && "C:\Users\Usuario\AppData\Local\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S"C:\Users\Usuario\Documents\2do UCC\Parcial2-SimesVartanian" -B"C:\Users\Usuario\Documents\2do UCC\Parcial2-SimesVartanian\cmake-build-debug""
+  COMMAND = cmd.exe /C "cd /D "C:\Users\Usuario\Desktop\parcial 2\Parcial2VartanianSimes\cmake-build-debug" && "C:\Users\Usuario\AppData\Local\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S"C:\Users\Usuario\Desktop\parcial 2\Parcial2VartanianSimes" -B"C:\Users\Usuario\Desktop\parcial 2\Parcial2VartanianSimes\cmake-build-debug""
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -110,7 +110,7 @@ build Parcial2_SimesVartanian: phony Parcial2_SimesVartanian.exe
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/Usuario/Documents/2do UCC/Parcial2-SimesVartanian/cmake-build-debug
+# Folder: C:/Users/Usuario/Desktop/parcial 2/Parcial2VartanianSimes/cmake-build-debug
 
 build all: phony Parcial2_SimesVartanian.exe
 

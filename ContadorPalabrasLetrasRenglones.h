@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include<string>
+#include "Corregir.h"
 using namespace std;
 int cantletras (const std::string &filename) {
     fstream file;
@@ -32,27 +33,6 @@ int cantletras (const std::string &filename) {
     return cantl;
 
 }
-
-//esta funcion me cuenta las palabras, la voy incrementando
-int cantpalabras (const std:: string &filename)
-{
-    fstream file;
-    file.open( filename);
-
-    int cantp=0;
-    if (file.is_open()) {
-        std::string word, linea;
-        while (std::getline(file, linea)) {
-            std::stringstream lineStream (linea);
-            while (std::getline(lineStream, word, ' '))
-            {
-                cantp++;
-            }
-        }
-        return cantp;
-    }
-
-}
 int cantrenglones (const std:: string &filename)
 {
     fstream file;
@@ -73,7 +53,7 @@ int cantrenglones (const std:: string &filename)
 }
 void  ContPalLetRen ()
 {
-    string filename = "C:\\Users\\Usuario\\Documents\\2do UCC\\Parcial2-SimesVartanian\\texto";
+    string filename = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\texto";
     std::ifstream file;
     file.open(filename,std::ios::in);
 

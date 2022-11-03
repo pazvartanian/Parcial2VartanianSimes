@@ -10,9 +10,11 @@
 #include "HashMap.h"
 #include <map>
 #include <sstream>
-//#include "ContadorPalabrasLetrasRenglones.h"
+#include "Corregir.h"
+#include "QuickSort.h"
+
 using namespace std;
-void quickSort(int  arrn[], std::string arrc[],  int menor, int mayor );
+
 
 
 //transformo los caracteres de la clave en numeros
@@ -34,46 +36,37 @@ unsigned int miHashFunc(string clave)
 }
 void Ocurrencias ( int n)
 {
-    string filename = "C:\\Users\\Usuario\\Documents\\2do UCC\\Parcial2-SimesVartanian\\texto";
+    string filename = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\texto";
     std::ifstream file;
     file.open(filename,std::ios::in);
     int cantp;
     //ver como tener la cant de palabras
-    cantp = 34;
+    cantp = cantpalabras(filename);
 
 
 HashMap<std::string, int> TH(cantp, &miHashFunc);
 
 if (file.is_open()) {
-std::string word, linea, nuevaword;
+std::string word, linea;
 
 while (std::getline(file, linea)) {
-
 std::stringstream lineStream(linea);
+
 while (std::getline(lineStream, word, ' ')) {
-    if (word[word.size()]== ',' || word[word.size()]== ';' || word[word.size()]== '?' || word[word.size()]== '.' || word[word.size()]== ':' || word[word.size()]== '!' ){
-        nuevaword = word.substr (1, word.size()-1);
-    }else if (word[word.size() - word.size() - 1] == 33 || word[word.size() - word.size() - 1] == 168 || word[word.size() - word.size() - 1] == 40 )
-    {
-        nuevaword = word.substr(2, word.size() - 1);
-    }else nuevaword=word;
+    word = corregirPalabra(word);
+     TH.put(word, 1);
 
-
-    TH.put(nuevaword, 1);
 
 
 }
 }
 }
 
-//cout<<"Sin ordenar segun ocurrencias"<<endl;
 file.close();
-//otra forma hacer quicksort con array fuera de los metodos del hash
-//voy a pedirle al hash q me traiga dos arreglos uno con las claves otro con ocurrencias
 int cantrepetidas=0;
 int arrn[cantp];
 std::string arrc[cantp];
-cantrepetidas=TH.arregloconclaves(arrc, cantrepetidas);
+cantrepetidas=TH.arregloconclaves(arrc, cantrepetidas); //corregir esto
 TH.arregloconocurrencias(arrn);
 
 cout<<"ahora cantidad de repetidas: "<<cantrepetidas<<endl;
@@ -102,45 +95,5 @@ else if (n>0 && n<cantp)
 }
 
 }
-void swap(int arr[] , int pos1, int pos2){
-    int temp;
-    temp = arr[pos1];
-    arr[pos1] = arr[pos2];
-    arr[pos2] = temp;
-}
-void swap2(std::string arr[] , int pos1, int pos2){
-    std::string temp;
-    temp = arr[pos1];
-    arr[pos1] = arr[pos2];
-    arr[pos2] = temp;
-}
-
-int partition(int arr[], std::string arrc[],  int low, int high, int pivot){
-    int i = low;
-    int j = low;
-    while( i <= high){
-        if(arr[i] > pivot){
-            i++;
-        }
-        else{
-            swap(arr,i,j);
-            swap2(arrc, i, j);
-            i++;
-            j++;
-        }
-    }
-    return j-1;
-}
-
-void quickSort(int arr[], std::string arrc[],  int low, int high){
-    if(low < high){
-        int pivot = arr[high];
-        int pos = partition(arr, arrc,  low, high, pivot);
-
-        quickSort(arr, arrc, low, pos-1);
-        quickSort(arr,arrc,  pos+1, high);
-    }
-}
-
 
 #endif //PARCIAL2_SIMESVARTANIAN_FUNCIONOCURRENCIAS_H

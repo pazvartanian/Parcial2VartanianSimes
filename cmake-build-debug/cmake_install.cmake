@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Usuario/Documents/2do UCC/Parcial2-SimesVartanian
+# Install script for directory: C:/Users/Usuario/Desktop/parcial 2/Parcial2VartanianSimes
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Usuario/Documents/2do UCC/Parcial2-SimesVartanian/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Usuario/Desktop/parcial 2/Parcial2VartanianSimes/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

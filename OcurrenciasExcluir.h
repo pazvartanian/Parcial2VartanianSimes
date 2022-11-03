@@ -10,9 +10,9 @@
 #include "HashMap.h"
 #include <map>
 #include <sstream>
-//#include "ContadorPalabrasLetrasRenglones.h"
+#include "Corregir.h"
+#include "QuickSort.h"
 using namespace std;
-void quickSort(int  arrn[], std::string arrc[],  int menor, int mayor );
 
 
 //transformo los caracteres de la clave en numeros
@@ -35,33 +35,26 @@ unsigned int miHashFunc2(string clave)
 void Excluirf (const std::string &igntext)
 {
     cout<<"ENTRO A EXCLUIR "<<endl;
-    string filename = "C:\\Users\\Usuario\\Documents\\2do UCC\\Parcial2-SimesVartanian\\texto";
+    string filename = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\texto";
     std::ifstream file;
     file.open(filename,std::ios::in);
     int cantp;
     //ver como tener la cant de palabras
-    cantp = 34;
+    cantp = cantpalabras(filename);
 
 
     HashMap<std::string, int> TH(cantp, &miHashFunc2);
 
     if (file.is_open()) {
-        std::string word, linea, nuevaword;
+        std::string word, linea;
 //no estoy segura q son las cosas entre parentesis
         while (std::getline(file, linea)) {
 
             std::stringstream lineStream(linea);
             while (std::getline(lineStream, word, ' ')) {
+                word=corregirPalabra(word);
 
-                if (word[word.size()]== ',' || word[word.size()]== ';' || word[word.size()]== '?' || word[word.size()]== '.' || word[word.size()]== ':' || word[word.size()]== '!' ){
-                    nuevaword = word.substr (1, word.size()-1);
-                }else if (word[word.size() - word.size() - 1] == 33 || word[word.size() - word.size() - 1] == 168 || word[word.size() - word.size() - 1] == 40 )
-                {
-                    nuevaword = word.substr(2, word.size() - 1);
-                }else nuevaword=word;
-
-
-                TH.put(nuevaword, 1);
+                TH.put(word, 1);
 
             }
         }
@@ -80,7 +73,7 @@ void Excluirf (const std::string &igntext)
 
     fstream file2;
     file2.open( igntext);
-    std::string arrign[100];
+    std::string arrign[cantp];
     int j=0;
 
     if (file2.is_open()) {
@@ -88,21 +81,12 @@ void Excluirf (const std::string &igntext)
         while (std::getline(file2, linea)) {
             std::stringstream lineStream (linea);
             while (std::getline(lineStream, word, ' '))
-
-
             {
-                if (word[word.size()]== ',' || word[word.size()]== ';' || word[word.size()]== '?' || word[word.size()]== '.' || word[word.size()]== ':' || word[word.size()]== '!' ){
-                    nuevaword = word.substr (1, word.size()-1);
-                }else if (word[word.size() - word.size() - 1] == 33 || word[word.size() - word.size() - 1] == 168 || word[word.size() - word.size() - 1] == 40 )
-                {
-                    nuevaword = word.substr(2, word.size() - 1);
-                }else nuevaword=word;
-
-
-                TH.put(nuevaword, 1);
+                word= corregirPalabra(word);
+                TH.put(word, 1);
                 //guardemos cada palabra del texto ignorar en un arreglo
                 cout<<"primer palabra a ignorar : "<<nuevaword<<endl;
-                arrign[j]=nuevaword;
+                arrign[j]=word;
                 j++;
             }
             }
@@ -132,48 +116,5 @@ void Excluirf (const std::string &igntext)
 
     }
 
-
-
-
-
-void swap2(int arr[] , int pos1, int pos2){
-    int temp;
-    temp = arr[pos1];
-    arr[pos1] = arr[pos2];
-    arr[pos2] = temp;
-}
-void swap22(std::string arr[] , int pos1, int pos2){
-    std::string temp;
-    temp = arr[pos1];
-    arr[pos1] = arr[pos2];
-    arr[pos2] = temp;
-}
-
-int partition2(int arr[], std::string arrc[],  int low, int high, int pivot){
-    int i = low;
-    int j = low;
-    while( i <= high){
-        if(arr[i] > pivot){
-            i++;
-        }
-        else{
-            swap2(arr,i,j);
-            swap22(arrc, i, j);
-            i++;
-            j++;
-        }
-    }
-    return j-1;
-}
-
-void quickSort2(int arr[], std::string arrc[],  int low, int high){
-    if(low < high){
-        int pivot = arr[high];
-        int pos = partition2(arr, arrc,  low, high, pivot);
-
-        quickSort2(arr, arrc, low, pos-1);
-        quickSort2(arr,arrc,  pos+1, high);
-    }
-}
 
 #endif //PARCIAL2_SIMESVARTANIAN_OCURRENCIASEXCLUIR_H

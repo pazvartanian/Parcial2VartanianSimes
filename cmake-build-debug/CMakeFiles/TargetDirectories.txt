@@ -1,3 +1,3 @@
-C:/Users/Usuario/Documents/2do UCC/Parcial2-SimesVartanian/cmake-build-debug/CMakeFiles/Parcial2_SimesVartanian.dir
-C:/Users/Usuario/Documents/2do UCC/Parcial2-SimesVartanian/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Usuario/Documents/2do UCC/Parcial2-SimesVartanian/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Usuario/Desktop/parcial 2/Parcial2VartanianSimes/cmake-build-debug/CMakeFiles/Parcial2_SimesVartanian.dir
+C:/Users/Usuario/Desktop/parcial 2/Parcial2VartanianSimes/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Usuario/Desktop/parcial 2/Parcial2VartanianSimes/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -12,6 +12,9 @@ private:
     int ocurr;
 
 public:
+    Nodo (){
+        ocurr=0;
+    }
     std::string getDato(){
         return dato;
     }

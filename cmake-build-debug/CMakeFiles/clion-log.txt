@@ -1,4 +1,4 @@
-"C:\Users\Usuario\AppData\Local\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Users/Usuario/AppData/Local/JetBrains/CLion 2022.2/bin/ninja/win/ninja.exe" -G Ninja -S "C:\Users\Usuario\Documents\2do UCC\Parcial2-SimesVartanian" -B "C:\Users\Usuario\Documents\2do UCC\Parcial2-SimesVartanian\cmake-build-debug"
+"C:\Users\Usuario\AppData\Local\JetBrains\CLion 2022.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Users/Usuario/AppData/Local/JetBrains/CLion 2022.2/bin/ninja/win/ninja.exe" -G Ninja -S "C:\Users\Usuario\Desktop\parcial 2\Parcial2VartanianSimes" -B "C:\Users\Usuario\Desktop\parcial 2\Parcial2VartanianSimes\cmake-build-debug"
 -- The C compiler identification is GNU 12.1.0
 -- The CXX compiler identification is GNU 12.1.0
 -- Detecting C compiler ABI info
@@ -13,4 +13,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/Usuario/Documents/2do UCC/Parcial2-SimesVartanian/cmake-build-debug
+-- Build files have been written to: C:/Users/Usuario/Desktop/parcial 2/Parcial2VartanianSimes/cmake-build-debug

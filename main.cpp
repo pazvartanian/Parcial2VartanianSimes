@@ -12,18 +12,18 @@
 
     t0= clock();
 
-     string igntxt = "C:\\Users\\Usuario\\Documents\\2do UCC\\Parcial2-SimesVartanian\\igntxt";
+     string igntxt = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\igntxt";
      std::ifstream file;
      file.open(igntxt,std::ios::in);
 
      ContPalLetRen();
      int n=0;
      Ocurrencias(n);
-     Excluirf(igntxt);
+     //Excluirf(igntxt);
      std::string palabra;
-     palabra= "hola";
-     Excluir(palabra);
-     Mostrar (palabra);
+     //palabra= "hola";
+     //Excluir(palabra);
+     //Mostrar (palabra);
      Palabras(n);
 
      t1=clock();

@@ -5,26 +5,65 @@
 #include "OcurrenciasExcluirPalabras.h"
 #include "OcurrenciasMostrar.h"
 #include "OrdenAlfabetico.h"
+#include<cstring>
+ int main (int argc, char **argv) {
 
- int main () {
 
+    cout <<" You have entered "<< argc << " arguments"<<endl;
     unsigned t0,t1;
 
     t0= clock();
 
-     string igntxt = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\igntxt";
-     std::ifstream file;
-     file.open(igntxt,std::ios::in);
 
-     ContPalLetRen();
-     int n=0;
-     Ocurrencias(n);
-     //Excluirf(igntxt);
-     std::string palabra;
-     //palabra= "hola";
-     //Excluir(palabra);
-     //Mostrar (palabra);
-     Palabras(n);
+
+   try {
+
+         if (strcmp(argv[1], "texto.txt")==0 && argc == 2)
+         {
+             ContPalLetRen(argv[1]);
+         }
+         if (strcmp(argv[1], "-palabras")==0){
+             if (strcmp(argv[2], "texto.txt")==0)
+             {
+                 Palabras(argv[2]);
+             }
+         }
+
+         if (strcmp(argv[1], "-ocurrencias")==0) {
+
+             if (argc < 4) {
+                 cout << argv[2] << endl;
+
+                 if (strcmp(argv[2], "texto.txt") == 0) {
+                     cout << "entro" << endl;
+                     Ocurrencias(argv[2], "0");
+
+                 }
+             } else {
+
+
+                 if (strcmp(argv[3], "texto.txt") == 0) {
+                     Ocurrencias(argv[3], argv[2]);
+                 }
+                          else if (strcmp(argv[2], "-excluir")==0)
+                          {
+                              Excluir(argv[4], argv[3]);
+                          }
+                          else if (strcmp(argv[2], "-excluirf")==0)
+                          {
+                              Excluirf(argv[4], argv[3]);
+                          }
+                        /*  else {
+                              Mostrar (palabra);
+
+                          }*/
+             }
+
+         }
+
+     }catch (int e){
+         if (e==300){}
+     }
 
      t1=clock();
 

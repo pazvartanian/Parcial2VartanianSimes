@@ -9,6 +9,7 @@
 #include<fstream>
 #include "HashMap.h"
 #include <map>
+#include "esNumero.h"
 #include <sstream>
 #include "Corregir.h"
 #include "QuickSort.h"
@@ -63,68 +64,63 @@ unsigned int miHashFunc(string clave)
 
     return key ;
 }
-void Ocurrencias ( int n)
-{
-    string filename = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\texto";
-    std::ifstream file;
-    file.open(filename,std::ios::in);
-    int cantp;
-    //ver como tener la cant de palabras
-    cantp = cantpalabras(filename);
+void Ocurrencias (const std::string &filename, const std::string &m ) {
+    if (esNumero(m)) {
+        int n= atoi(m.c_str());
+        std::ifstream file;
+        file.open(filename, std::ios::in);
+        int cantp;
+        //ver como tener la cant de palabras
+        cantp = cantpalabras(filename);
 
 
-HashMap<std::string, int> TH(cantp, &miHashFunc);
+        HashMap<std::string, int> TH(cantp, &miHashFunc);
 
-if (file.is_open()) {
-std::string word, linea;
+        if (file.is_open()) {
+            std::string word, linea;
 
-while (std::getline(file, linea)) {
-std::stringstream lineStream(linea);
+            while (std::getline(file, linea)) {
+                std::stringstream lineStream(linea);
 
-while (std::getline(lineStream, word, ' ')) {
-    word = corregirPalabra(word);
-     TH.put(word, 1);
+                while (std::getline(lineStream, word, ' ')) {
+                    word = corregirPalabra(word);
+                    TH.put(word, 1);
 
 
+                }
+            }
+        }
+        file.close();
+        int cantrepetidas = 0;
+        int arrn[cantp];
+        std::string arrc[cantp];
+        cantrepetidas = TH.arregloconclaves(arrc, cantrepetidas); //corregir esto
+        TH.arregloconocurrencias(arrn);
 
-}
-}
-}
+        cout << "ahora cantidad de repetidas: " << cantrepetidas << endl;
+        //quickSort(arrn, arrc,   0, cantp-1);
 
-file.close();
-int cantrepetidas=0;
-int arrn[cantp];
-std::string arrc[cantp];
-cantrepetidas=TH.arregloconclaves(arrc, cantrepetidas); //corregir esto
-TH.arregloconocurrencias(arrn);
-
-cout<<"ahora cantidad de repetidas: "<<cantrepetidas<<endl;
-//quickSort(arrn, arrc,   0, cantp-1);
-shellsort(arrn, arrc, cantp);
-cout<< "ORDENADO"<<endl;
-    cout<<"n "<<n<<endl;
+        cout<<"AHORA CON SELSHORT"<<endl;
+        shellsort(arrn, arrc, cantp);
+        cout << "ORDENADO" << endl;
+        cout << "n " << n << endl;
 //cantp=cantp-cantrepetidas;
-if (n==0)
-{
-    for (int i=cantp-1; i>0; i--)
-    {
-        if (arrn[i]!=-1)
-            cout<<"CLAVE "<<arrc[i]<<" OCURRENCIAS: "<<arrn[i]<<endl;
+        if (n==0) {
+            for (int i = cantp - 1; i > 0; i--) {
+                if (arrn[i] != -1)
+                    cout << "CLAVE " << arrc[i] << " OCURRENCIAS: " << arrn[i] << endl;
+
+            }
+
+        } else if (n > 0 && n < cantp) {
+            for (int i = cantp - 1; i > cantp - 1 - n; i--) {
+                if (arrn[i] != -1)
+                    cout << "CLAVE " << arrc[i] << " OCURRENCIAS: " << arrn[i] << endl;
+
+            }
+        }
 
     }
-
 }
-else if (n>0 && n<cantp)
-{
-    for (int i=cantp-1; i>cantp-1-n; i--)
-    {
-        if (arrn[i]!=-1)
-            cout<<"CLAVE "<<arrc[i]<<" OCURRENCIAS: "<<arrn[i]<<endl;
-
-    }
-}
-
-}
-
 
 #endif //PARCIAL2_SIMESVARTANIAN_FUNCIONOCURRENCIAS_H

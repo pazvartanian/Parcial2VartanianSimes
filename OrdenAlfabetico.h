@@ -10,9 +10,9 @@
 #include <sstream>
 #include<fstream>
 
-void Palabras (int n) {
+void Palabras (const std::string &filename) {
     cout << "ENTRO A ARBOL ORDEN ALFABETICO" << endl;
-    string filename = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\texto";
+   /* string filename = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\texto";*/
     std::ifstream file;
     file.open(filename, std::ios::in);
     ArbolBinario<std::string> Arbol;
@@ -29,7 +29,7 @@ void Palabras (int n) {
             }
         }
     }
-    if (n==0){
+    //if (n==0){
         Arbol.inorder();}
    /* else if (n>0)
     {
@@ -39,6 +39,6 @@ void Palabras (int n) {
     }else {
         cout<<"La cantidad de palabras que quieren mostrarse (n) no puede ser un valor negativo"<<endl;
     }*/
-}
+
 
 #endif //PARCIAL2_SIMESVARTANIAN_ORDENALFABETICO_H

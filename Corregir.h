@@ -25,9 +25,9 @@ std::string corregirPalabra (std::string palabra) {
 }
 int cantpalabras (const std:: string &filename)
 {
+    std::cout<<filename;
     std::fstream file;
     file.open( filename);
-
     int cantp=0;
     if (file.is_open()) {
         std::string word, linea;
@@ -39,6 +39,8 @@ int cantpalabras (const std:: string &filename)
             }
         }
         return cantp;
+    }else{
+        exit(1);
     }
 
 }

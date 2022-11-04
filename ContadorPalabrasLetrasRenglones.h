@@ -48,16 +48,18 @@ int cantrenglones (const std:: string &filename)
             }
         }
         return cantr;
+    }else{
+        exit(1);
     }
 
 }
-void  ContPalLetRen ()
+void  ContPalLetRen (const std::string &filename)
 {
-    string filename = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\texto";
-    std::ifstream file;
-    file.open(filename,std::ios::in);
+    //std::ifstream file;
 
+    //file.open(filename,std::ios::in);
     int cantp = cantpalabras(filename);
+
     cout << "Cantidad letras:" << cantletras(filename) << endl;
     cout << "cantidad palabras: " << cantp << endl;
     cout << "cantidad renglones: " << cantrenglones(filename) << endl;

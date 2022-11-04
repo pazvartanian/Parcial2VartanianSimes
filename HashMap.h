@@ -289,24 +289,5 @@ int HashMap<K, T>::arregloconclaves(K *arrc, int cantrepetidas) {
 }
 
 
-/* template <class K, class T> int HashMap<K,T>::rellenoArreglos(int arregloOcu[], std:: string arregloPal[]) {
-    int contador= 0 ;
-
-    for (int i=0; i<tamanio; i++){
-        if (tabla[i] != NULL){
-            arregloOcu[i] = tabla[i]->getValor();
-            arregloPal[i] = tabla[i] ->getClave();
-        } else {
-            arregloOcu[i]= -1;
-            arregloPal[i]= "NULL" ;
-
-            contador++ ;
-        }
-    }
-    return contador ;
-}
- */
-
 #endif //PARCIAL2_SIMESVARTANIAN_HASHMAP_H
 
-//pq funciona el put solo con algunas palabfas

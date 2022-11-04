@@ -32,12 +32,13 @@ unsigned int miHashFunc2(string clave)
 
     return key ;
 }
-void Excluirf (const std::string &igntext)
+void Excluirf (const std::string &filename, const std::string &igntxt)
 {
     cout<<"ENTRO A EXCLUIR "<<endl;
-    string filename = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\texto";
+
     std::ifstream file;
-    file.open(filename,std::ios::in);
+    file.open(filename ,std::ios::in);
+
     int cantp;
     //ver como tener la cant de palabras
     cantp = cantpalabras(filename);
@@ -71,8 +72,8 @@ void Excluirf (const std::string &igntext)
 
     quickSort(arrn, arrc,   0, cantp-1);
 
-    fstream file2;
-    file2.open( igntext);
+    std::ifstream file2;
+    file2.open( igntxt);
     std::string arrign[cantp];
     int j=0;
 
@@ -85,7 +86,7 @@ void Excluirf (const std::string &igntext)
                 word= corregirPalabra(word);
                 TH.put(word, 1);
                 //guardemos cada palabra del texto ignorar en un arreglo
-                cout<<"primer palabra a ignorar : "<<nuevaword<<endl;
+                cout<<"primer palabra a ignorar : "<<word<<endl;
                 arrign[j]=word;
                 j++;
             }

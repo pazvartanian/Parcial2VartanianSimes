@@ -32,10 +32,9 @@ unsigned int miHashFunc3(string clave)
 
     return key ;
 }
-void Excluir (std::string palabra)
+void Excluir (const std::string &filename, const std::string palabra)
 {
     cout<<"ENTRO A EXCLUIR UNA O UNAS PALABRAS"<<endl;
-    string filename = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\texto";
     std::ifstream file;
     file.open(filename,std::ios::in);
     int cantp;
@@ -70,10 +69,17 @@ void Excluir (std::string palabra)
     TH.arregloconocurrencias(arrn);
 
     quickSort(arrn, arrc,   0, cantp-1);
+    std::string word, linea;
 
 
+        std::stringstream lineStream(linea);
+        while (std::getline(lineStream, word, ' ')) {
+            word= corregirPalabra(word);
+            TH.put(word, 1);
 
-cout<<" la palabra q no se puede poner es "<<palabra<<endl;
+        }
+
+
         for (int i=cantp-1; i>0; i--)
         {
             if (arrn[i]!=-1 && arrc[i]!=palabra)

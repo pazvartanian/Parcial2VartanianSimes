@@ -365,7 +365,7 @@ void ArbolBinario<T>::print()
 }
 
 template <class T> int ArbolBinario<T>::contarPorNivel(int nivel) {
-    contarPorNivel(nivel, root);
+    return contarPorNivel(nivel, root);
 }
 
 template <class T> int ArbolBinario<T>::contarPorNivel(int nivel, NodoArbol<T> *auxNodo) {

@@ -17,7 +17,7 @@
 using namespace std;
 
 /* Code to sort array using shell sort */
-void shellsort(int arrn[], std::string arrc[], int cantp)
+/*void shellsort(int arrn[], std::string arrc[], int cantp)
 {
     int i = 0, j = 0, k = 0, mid = 0;
     std::string midn;
@@ -45,7 +45,7 @@ void shellsort(int arrn[], std::string arrc[], int cantp)
         }
     }
     return;
-}
+}*/
 
 //transformo los caracteres de la clave en numeros
 unsigned int miHashFunc(string clave)

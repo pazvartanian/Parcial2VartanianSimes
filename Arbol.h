@@ -400,7 +400,7 @@ template <class T> bool ArbolBinario<T>::palabraRepetida(NodoArbol<T> *r, string
 template<class T> std::string ArbolBinario<T>::corregirPalabra (std::string palabra) {
     // vamos a correguir la palabra para mostarlas sin signos de explamacion, interrogacion ni putuacion
     //recorremos toda la palabra y borramos signos .
-    std::string caracteres = "?.!;¿¡,:" ;
+    std::string caracteres = "?.!;¿¡,-:()$#@%" ;
     for (char c: caracteres) {
         palabra.erase(std::remove(palabra.begin(), palabra.end(), c), palabra.end());
     }

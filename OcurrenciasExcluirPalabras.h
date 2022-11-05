@@ -10,9 +10,10 @@
 #include "HashMap.h"
 #include <map>
 #include <sstream>
+#include "QuickSort.h"
 //#include "ContadorPalabrasLetrasRenglones.h"
 using namespace std;
-void quickSort3(int  arrn[], std::string arrc[],  int menor, int mayor );
+
 
 
 //transformo los caracteres de la clave en numeros
@@ -32,28 +33,59 @@ unsigned int miHashFunc3(string clave)
 
     return key ;
 }
-void Excluir (const std::string &filename, const std::string palabra)
+void Excluir (const std::string &filename, std::string palabrasexcluir)
 {
     cout<<"ENTRO A EXCLUIR UNA O UNAS PALABRAS"<<endl;
+
+    int cantp;
+    cantp= cantpalabras(filename);
+    std::string arreglopalabrasexcluir[cantp];
+    std::string palabraexc;
+    std::stringstream lineStream (palabrasexcluir);
+
+    cantp = cantpalabras(filename);
+    int i=0;
+            while (std::getline(lineStream,palabraexc, ','))
+            {
+                palabraexc= corregirPalabra(palabraexc);
+                arreglopalabrasexcluir[i]=palabraexc;
+                i++;
+            }
+            cout<<"Las palabras a excluir son: "<<endl;
+
+        for (int j=0; j<i; j++)
+        {
+            cout<<arreglopalabrasexcluir[j]<<endl;
+        }
+
+
     std::ifstream file;
     file.open(filename,std::ios::in);
-    int cantp;
-    //ver como tener la cant de palabras
-    cantp = cantpalabras(filename);
 
 
     HashMap<std::string, int> TH(cantp, &miHashFunc3);
-
+    int bandera=0;
     if (file.is_open()) {
         std::string word, linea;
 
-        while (std::getline(file, linea)) {
+        while (std::getline(file, linea, ' ')) {
 
             std::stringstream lineStream(linea);
             while (std::getline(lineStream, word, ' ')) {
-                word= corregirPalabra(word);
-                TH.put(word, 1);
+                word = corregirPalabra(word);
 
+                for (int j=0; j<i; j++){
+                    if (word==arreglopalabrasexcluir[j])
+                    {
+                        bandera=1;
+                    }
+                }
+                if (bandera!=1)
+                {
+                    TH.put(word, 1); //recorre el arreglo de las palabras aexcluir y si esta pone al abnderfa en 1
+
+                }
+                bandera=0;
             }
         }
     }
@@ -68,21 +100,11 @@ void Excluir (const std::string &filename, const std::string palabra)
     cantrepetidas=TH.arregloconclaves(arrc, cantrepetidas);
     TH.arregloconocurrencias(arrn);
 
-    quickSort(arrn, arrc,   0, cantp-1);
-    std::string word, linea;
-
-
-        std::stringstream lineStream(linea);
-        while (std::getline(lineStream, word, ' ')) {
-            word= corregirPalabra(word);
-            TH.put(word, 1);
-
-        }
-
+    shellsort(arrn, arrc, cantp);
 
         for (int i=cantp-1; i>0; i--)
         {
-            if (arrn[i]!=-1 && arrc[i]!=palabra)
+            if (arrn[i]!=-1)
                 cout<<"CLAVE "<<arrc[i]<<" OCURRENCIAS: "<<arrn[i]<<endl;
         }
 

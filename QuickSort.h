@@ -44,4 +44,34 @@ void quickSort(int arr[], std::string arrc[],  int low, int high){
         quickSort(arr,arrc,  pos+1, high);
     }
 }
+void shellsort(int arrn[], std::string arrc[], int cantp)
+{
+    int i = 0, j = 0, k = 0, mid = 0;
+    std::string midn;
+    for (k = cantp / 2;k > 0;k /= 2)
+    {
+        for (j = k;j < cantp;j++)
+        {
+            for (i = j - k;i >= 0;i -= k)
+            {
+                if (arrn[i + k] >= arrn[i])
+                {
+                    break;
+                }
+                else
+                {
+                    mid = arrn[i];
+                    midn=arrc[i];
+                    arrn[i] = arrn[i + k];
+                    arrc[i]=arrc[i+k];
+                    arrn[i + k] = mid;
+                    arrc[i+k]=midn;
+
+                }
+            }
+        }
+    }
+    return;
+}
+
 #endif //PARCIAL2_SIMESVARTANIAN_QUICKSORT_H

@@ -3,7 +3,7 @@
 #include "ContadorPalabrasLetrasRenglones.h"
 #include "OcurrenciasExcluir.h"
 #include "OcurrenciasExcluirPalabras.h"
-#include "OcurrenciasMostrar.h"
+#include "MostrarOcurrencias1.h"
 #include "OrdenAlfabetico.h"
 #include<cstring>
  int main (int argc, char **argv) {
@@ -13,8 +13,6 @@
     unsigned t0,t1;
 
     t0= clock();
-
-
 
    try {
 
@@ -44,22 +42,18 @@
 
                  if (strcmp(argv[3], "texto.txt") == 0) {
                      Ocurrencias(argv[3], argv[2]);
-                 }
-                          else if (strcmp(argv[2], "-excluir")==0)
-                          {
-                              Excluir(argv[4], argv[3]);
-                          }
-                          else if (strcmp(argv[2], "-excluirf")==0)
-                          {
-                              Excluirf(argv[4], argv[3]);
-                          }
-                        /*  else {
-                              Mostrar (palabra);
+                 } else if (strcmp(argv[2], "-excluir") == 0) {
+                     Excluir(argv[4], argv[3]);
+                 } else if (strcmp(argv[2], "-excluirf") == 0) {
+                     Excluirf(argv[4], argv[3]);
+                 } else if (strcmp(argv[2], "-mostrar") == 0) {
+                     Mostrar(argv[4], argv[3]);
 
-                          }*/
+                 }
+             }
              }
 
-         }
+
 
      }catch (int e){
          if (e==300){}

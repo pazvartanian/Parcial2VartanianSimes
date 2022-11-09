@@ -10,6 +10,22 @@
 #include <cctype>
 #include <cstring>
 
+unsigned int miHashFunc(std::string clave)
+{  const int p= 31 , m= 1e9 + 7 ;
+
+
+    int key = 0 ;
+    long p_pow = 1 ;
+
+    for (int i=0; i<clave.length(); i++){
+        clave[i]= tolower(clave[i]);
+        key += (key + (clave[i] - 'a' + 1 ) * p_pow) % m ; //tolower nos cambia a minuscula
+        p_pow = (p_pow * p )% m ;
+
+    }
+
+    return key ;
+}
 int Colisiones (std::string clave);
 
 int Colisiones (std::string clave){

@@ -5,64 +5,63 @@
 #include<string>
 #include "Corregir.h"
 using namespace std;
-int cantletras (const std::string &filename) {
+int cantidad_letras (const std::string &filename) {
     fstream file;
     file.open(filename);
-    int cantl = 0;
+    int cletras = 0;
+    //es el contador de la cantidad de letras
 
 
     if (file.is_open()){
         std::string word; //variable q va a guardarcada palabra de la linea
         //leeamos el texot
         while (std::getline (file, word, ' ')){
-            //leeamo cada letra de nuestro string word
+            //leemos cada letra de nuestro string word
             for(int n=0 ; n<(int)word.length(); n++){
                 if (word[n] >= 65 && word[n]<= 90 ) {
                     // esto me decidide si es una letra mayuscula
-                    cantl++;
+                    cletras++;
                 } else if (word[n] >= 97 && word [n] <= 122)
                     //letra minuscula
-                    cantl ++ ;
-
-                // faltarian agregar if para ver si tiene comas op algun otro signo
+                    cletras ++ ;
             }
-
         }
     }else throw 404;
 
-    return cantl;
+    return cletras;
 
 }
-int cantrenglones (const std:: string &filename)
+int cantidad_renglones (const std:: string &filename)
 {
     fstream file;
     file.open( filename);
-    int cantr=0;
+    int crenglones=0;
+    // es el contador de la cantidad de renglones
     if (file.is_open()) {
         std::string linea, word;
         while (std::getline(file, linea)) {
             std::stringstream lineStream (linea);
             while( std::getline(lineStream, word))
             {
-                cantr++;
+                crenglones++;
             }
         }
-        return cantr;
+        return crenglones;
     }else{
         exit(1);
     }
 
 }
-void  ContPalLetRen (const std::string &filename)
+void  Contador_Pal_Let_Ren (const std::string &filename)
 {
     //std::ifstream file;
 
     //file.open(filename,std::ios::in);
-    int cantp = cantpalabras(filename);
+    int cpalabras = cantpalabras(filename);
 
-    cout << "Cantidad letras:" << cantletras(filename) << endl;
-    cout << "cantidad palabras: " << cantp << endl;
-    cout << "cantidad renglones: " << cantrenglones(filename) << endl;
+    cout << "Cantidad letras:" << cantidad_letras(filename) << endl;
+    cout << "cantidad palabras: " << cpalabras << endl;
+    cout << "cantidad renglones: " << cantidad_renglones(filename) << endl;
 
 
 }

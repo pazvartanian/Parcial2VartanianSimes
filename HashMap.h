@@ -245,7 +245,7 @@ void HashMap<K, T>::print() {
     }
 }
 
-//metodo q m devuelva arreglo con ocurrencuas
+//metodo q m devuelva arreglo con ocurrencias
 template<class K, class T>
 void HashMap<K, T>::arregloconocurrencias(T arrn[]) {
     for (int i = 0; i < tamanio; i++) {

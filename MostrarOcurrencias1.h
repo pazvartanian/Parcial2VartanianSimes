@@ -12,7 +12,6 @@
 #include <sstream>
 using namespace std;
 #include"fstream"
-
 #include "Corregir.h"
 #include "Quicksort.h"
 unsigned int miHashFunc4(string clave)

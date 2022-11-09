@@ -15,7 +15,7 @@
 std::string corregirPalabra (std::string palabra) {
 // vamos a correguir la palabra para mostarlas sin signos de explamacion, interrogacion ni putuacion
 //recorremos toda la palabra y borramos signos .
-    std::string caracteres = "(?.!;¿¡,:}]/*)#$%^@~'" ; //ver como hacer para q saque el "
+    std::string caracteres = "(?.!;¿¡,:}]/*)-#$%^@~'" ; //ver como hacer para q saque el "
     for (char c: caracteres) {
         palabra.erase(std::remove(palabra.begin(), palabra.end(), c), palabra.end());
     }
@@ -28,17 +28,18 @@ int cantpalabras (const std:: string &filename)
     std::cout<<filename;
     std::fstream file;
     file.open( filename);
-    int cantp=0;
+    int cpalabras=0;
+    //es el contador de la cantidad de palabras
     if (file.is_open()) {
         std::string word, linea;
         while (std::getline(file, linea)) {
             std::stringstream lineStream (linea);
             while (std::getline(lineStream, word, ' '))
             {
-                cantp++;
+                cpalabras++;
             }
         }
-        return cantp;
+        return cpalabras;
     }else{
         exit(1);
     }

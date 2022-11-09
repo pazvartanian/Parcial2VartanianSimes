@@ -5,11 +5,12 @@
 #include "OcurrenciasExcluirPalabras.h"
 #include "MostrarOcurrencias1.h"
 #include "OrdenAlfabetico.h"
+#include "excluirpalabraalf.h"
 #include<cstring>
  int main (int argc, char **argv) {
 
 
-    cout <<" You have entered "<< argc << " arguments"<<endl;
+    cout <<" Has escrito "<< argc << " argumentos"<<endl;
     unsigned t0,t1;
 
     t0= clock();
@@ -18,13 +19,18 @@
 
          if (strcmp(argv[1], "texto.txt")==0 && argc == 2)
          {
-             ContPalLetRen(argv[1]);
+             Contador_Pal_Let_Ren(argv[1]);
          }
          if (strcmp(argv[1], "-palabras")==0){
              if (strcmp(argv[2], "texto.txt")==0)
              {
-                 Palabras(argv[2]);
+                 Palabras(argv[2], argv[3]);
+             }else if (strcmp(argv[2], "-excluir")==0)
+             {
+                 ExcluirpalabrasAlf(argv[3], argv[4]);
              }
+
+
          }
 
          if (strcmp(argv[1], "-ocurrencias")==0) {
@@ -48,7 +54,6 @@
                      Excluirf(argv[4], argv[3]);
                  } else if (strcmp(argv[2], "-mostrar") == 0) {
                      Mostrar(argv[4], argv[3]);
-
                  }
              }
              }

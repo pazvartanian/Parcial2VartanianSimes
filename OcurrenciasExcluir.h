@@ -34,7 +34,7 @@ unsigned int miHashFunc2(string clave)
 }
 void Excluirf (const std::string &filename, const std::string &igntxt)
 {
-    cout<<"ENTRO A EXCLUIR "<<endl;
+
 
     std::ifstream file;
     file.open(filename ,std::ios::in);
@@ -86,7 +86,6 @@ void Excluirf (const std::string &filename, const std::string &igntxt)
                 word= corregirPalabra(word);
                 TH.put(word, 1);
                 //guardemos cada palabra del texto ignorar en un arreglo
-                cout<<"primer palabra a ignorar : "<<word<<endl;
                 arrign[j]=word;
                 j++;
             }
@@ -107,7 +106,7 @@ void Excluirf (const std::string &filename, const std::string &igntxt)
         }
         if (bandera==0 && arrn[i]!=-1)
         {
-            cout << "CLAVE " << arrc[i] << " OCURRENCIAS: " << arrn[i] << endl;
+            cout <<  arrc[i] <<  arrn[i] << endl;
         }
         bandera=0;
 

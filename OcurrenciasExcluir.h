@@ -78,7 +78,7 @@ void Excluirf (const std::string &filename, const std::string &igntxt)
     int j=0;
 
     if (file2.is_open()) {
-        std::string word, linea, nuevaword;
+        std::string word, linea;
         while (std::getline(file2, linea)) {
             std::stringstream lineStream (linea);
             while (std::getline(lineStream, word, ' '))
@@ -110,11 +110,8 @@ void Excluirf (const std::string &filename, const std::string &igntxt)
         }
         bandera=0;
 
-
     }
-
-
-    }
+}
 
 
 #endif //PARCIAL2_SIMESVARTANIAN_OCURRENCIASEXCLUIR_H

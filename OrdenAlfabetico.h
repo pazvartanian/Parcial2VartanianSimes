@@ -42,12 +42,6 @@ void Palabras (const std::string &filename, const std::string &m) {
             } else {
                 cout << "La cantidad de palabras que quieren mostrarse (n) no puede ser un valor negativo" << endl;
             }
-
-         //   Arbol.excluir(arreglo_palabras);
-           // cout << endl << endl << "sin las palabras del archivo igntx" << endl << endl;
-            //armamos un arbol con todas las palabras del archivo igntx
-
-            // Arbol.excluirf("C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\igntxt");
         }
 
     }

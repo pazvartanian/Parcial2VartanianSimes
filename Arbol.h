@@ -49,7 +49,7 @@ public:
 
     void excluirpu (std::string arreglo[]);
 
-    //void excluirf (string filename);
+    // void excluirfpu  (std::string arreglo[]);
 
 private:
     T search(T data, NodoArbol<T> *r);
@@ -66,7 +66,7 @@ private:
     void inexc (NodoArbol<T> *r, int n);
     void excluirpri (NodoArbol<T> *r, string arreglo[]);
     bool estaPalabraEnArreglo (string palabra, std::string arreglo[]);
-   // void excluirf (NodoArbol<T> *r, string filename);
+    // void excluirfpri (NodoArbol<T> *r, string arreglo[]);
 
 };
 
@@ -303,8 +303,11 @@ void ArbolBinario<T>::preorder(NodoArbol<T> *r)
 template <class T>
 void ArbolBinario<T>::inorder()
 {
+
     inorder(root);
+
     std::cout << std::endl;
+
 }
 
 template <class T>
@@ -491,7 +494,7 @@ template<class T> bool ArbolBinario<T>:: estaPalabraEnArreglo (std::string palab
     bool esta = false;
 
 
-    while(i<3 && !esta){
+    while(i<50 && !esta){
         if(arreglo[i] == palabra){
             esta=true;
         }
@@ -520,23 +523,22 @@ template<class T> void ArbolBinario<T>:: excluirpri (NodoArbol<T> *r, std::strin
 
 
 
-/*template<class T> void ArbolBinario<T>::excluirf(string filename) {
+//template<class T> void ArbolBinario<T>::excluirfpu(std::string arreglo[]) {
     // vamos a llamar al privado para pasarle la raiz
-    excluirf(root, filename);
-}*/
+   // excluirf(root, arreglo);
+// }
 
-/*
-template<class T> void ArbolBinario<T>::excluirf(NodoArbol<T> *r, string filename) {
+/*template<class T> void ArbolBinario<T>::excluirfpri(NodoArbol<T> *r, std::string arreglo[]) {
    //armamos un arreglo con todoas las palabras del archivo
     // va recibir el nombre, va a contar y hacer el arreglo
 
     std::ifstream file_igntxt;
     string linea, word;
-    string arreglo_ignorar[cantpalabras(filename)];
+    string arreglo_ignorar[cantpalabras(arreglo)];
    //  cout << endl << "cant palabras: " << arreglo_ignorar->length() << endl << endl;
     int i;
 
-    file_igntxt.open(filename, std::ios::in);
+    file_igntxt.open(arreglo, std::ios::in);
 
     if (file_igntxt.is_open()) {
         while (std::getline(file_igntxt, linea)) {
@@ -553,5 +555,4 @@ template<class T> void ArbolBinario<T>::excluirf(NodoArbol<T> *r, string filenam
     excluir(root, arreglo_ignorar);
 }
 */
-
 #endif //PARCIAL2_SIMESVARTANIAN_ARBOL_H

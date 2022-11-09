@@ -2,8 +2,8 @@
 // Created by Usuario on 09/11/2022.
 //
 
-#ifndef PARCIAL2_SIMESVARTANIAN_EXCLUIRPALABRAALF_H
-#define PARCIAL2_SIMESVARTANIAN_EXCLUIRPALABRAALF_H
+#ifndef PARCIAL2_SIMESVARTANIAN_EXCLUIR_PALABRA_ALF_H
+#define PARCIAL2_SIMESVARTANIAN_EXCLUIR_PALABRA_ALF_H
 
 #include "Arbol.h"
 #include <iostream>
@@ -14,10 +14,7 @@
 #include "Corregir.h"
 
 void ExcluirpalabrasAlf (const std::string &filename, std::string arreglo_palabras) {
-    //creo arrglo para hacer una pruba del metodo excluir
-    //string arreglo_palabras[] = {"ejercito", "revolucion", "guerras", "vida"};
 
-        /* string filename = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\texto";*/
         std::ifstream file;
         file.open(filename, std::ios::in);
         ArbolBinario<std::string> Arbol;
@@ -42,18 +39,10 @@ void ExcluirpalabrasAlf (const std::string &filename, std::string arreglo_palabr
                 i++;
             }
 
-
             Arbol.excluirpu(arreglo);
             Arbol.inorder();
-
-
         }
 
     }
 
-
-
-
-
-
-#endif //PARCIAL2_SIMESVARTANIAN_EXCLUIRPALABRAALF_H
+#endif //PARCIAL2_SIMESVARTANIAN_EXCLUIR_PALABRA_ALF_H

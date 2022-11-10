@@ -49,13 +49,7 @@ public:
 
     void excluirpu (std::string arreglo[]);
 
-    /*int contarnodos (){
-        int nodos=0;
-        nodos=contarnodos(root);
-        return nodos;
-    };*/
-
-    // void excluirfpu  (std::string arreglo[]);
+     int contar ();
 
 private:
     T search(T data, NodoArbol<T> *r);
@@ -72,7 +66,8 @@ private:
     void inexc (NodoArbol<T> *r, int n);
     void excluirpri (NodoArbol<T> *r, string arreglo[]);
     bool estaPalabraEnArreglo (string palabra, std::string arreglo[]);
-    int contarnodos (NodoArbol<T> *r);
+
+    int contar (NodoArbol<T> *r);
 
 };
 
@@ -430,17 +425,19 @@ template<class T> std::string ArbolBinario<T>::corregirPalabra (std::string pala
 template<class T> void ArbolBinario<T>::insertar(std::string palabra) {
     //lo vamos a insertar en orden
     palabra = corregirPalabra(palabra);
+
     NodoArbol<string> *nuevo=new NodoArbol<string>(palabra);
+
     // ya creo un nuevo nodo con la palabra que le va a corresponder
 
     //vemos si el arbol esta vacio
     if (this->root == NULL){
         this->root = nuevo;
-    } else if (!this->palabraRepetida(this->root, palabra)){
+    } else if (!this->palabraRepetida(this->root, palabra)  ){
+
         //creo un nodo anterior y uno para recorrer
         NodoArbol<string> *anterior = NULL;
         NodoArbol<string> *recorrer = this->root;
-
 
 
         while (recorrer != NULL) {
@@ -461,6 +458,8 @@ template<class T> void ArbolBinario<T>::insertar(std::string palabra) {
             anterior->setRight(nuevo);
         }
     }
+
+
 
 }
 
@@ -526,13 +525,18 @@ template<class T> void ArbolBinario<T>:: excluirpri (NodoArbol<T> *r, std::strin
     //imprime izquierda, raiz y derecha lo hace en caso que la palabra no este en el arreglo.
     //si da flaso la palabra en el arreglo imprimir el dato
 
-    /*template<class T> int ArbolBinario<T>::contarnodos(NodoArbol<T> *r)
-    {
-        if ( r != nullptr){
-            return 1+ contarnodos(r->getLeft()) + contarnodos(r->getRight());
-        }
-        return 0;
+
+template<class T> int ArbolBinario<T>::contar() {
+    return contar(root);
+}
+
+template<class T>int ArbolBinario<T>::contar(NodoArbol<T> *r) {
+
+    if (r == nullptr){ // aca comienza a hacer un conteo
+    return 0;
+    } else {
+        return 1 + contar(r->getLeft) + contar(r->getRight);
     }
-     */
+}
 
 #endif //PARCIAL2_SIMESVARTANIAN_ARBOL_H

@@ -25,9 +25,10 @@ int main (int argc, char **argv) {
             if (strcmp(argv[3], "texto.txt")==0)
             {
                 Palabras(argv[3], argv[2]);
-            }else if (strcmp(argv[2], "-excluir")==0) {
+            } if (strcmp(argv[2], "-excluir")==0) {
                 ExcluirpalabrasAlf(argv[3], argv[4]);
-            }else if (strcmp(argv[2], "-excluirf")==0){
+            } if (strcmp(argv[2], "-excluirf")==0){
+                cout<<"HI"<<endl;
                 ExcluirpalabraIgntxt(argv[3], argv[4]);
             }
 

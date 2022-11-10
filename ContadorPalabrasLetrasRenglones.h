@@ -58,29 +58,33 @@ int cantidad_renglones (const std:: string &filename)
 // la idea es contar los nodos izquierdos, los derechos y la raiz
 // al sumarlos nos dara la cantidad de nodos en el arbol
 // es decir las palabras distintas
-//int palabrasDiferentes (const std::string &filename){
-//
-//    std::ifstream file;
-//    file.open(filename);
-//    ArbolBinario<std::string> Arbol;
-//    int contador=0;
-//
-//    if(file.is_open()){
-//        std::string word,linea;
-//
-//        while (std::getline(file,linea)){
-//            std::stringstream lineStream (linea);
-//            while(std::getline(lineStream,word,' ')){
-//                Arbol.insertar(word);
-//                contador++;
-//            }
-//        }
-//        //Arbol.contarnodos();
-//        return contador;
-//    }
-//}
 
+/*
+int palabrasDiferentes (const std::string &filename){
 
+    std::ifstream file;
+    file.open(filename,std::ios::in);
+    ArbolBinario<std::string> Arbol;
+   // int contador=0;
+
+    if(file.is_open()){
+        std::string word,linea;
+
+        while (std::getline(file,linea)){
+            std::stringstream lineStream (linea);
+
+            while(std::getline(lineStream,word,' ')){
+                Arbol.insertar(word);
+
+            }
+        }
+
+        //return contador;
+
+    }
+    file.close();
+}
+*/
 
 void  Contador_Pal_Let_Ren (const std::string &filename)
 {
@@ -90,7 +94,7 @@ void  Contador_Pal_Let_Ren (const std::string &filename)
     cout << "Cantidad Letras:" << cantidad_letras(filename) << "\n" << std::flush;
     cout << "Cantidad Palabras: " << cpalabras << "\n" << std::flush;
     cout << "Cantidad Renglones: " << cantidad_renglones(filename) << "\n" << std::flush;
-    // cout << "Palabras Diferentes:" << palabrasDiferentes << "\n" << std::flush;
+  //  cout << "Palabras Diferentes:" << palabrasDiferentes(filename) << "\n" << std::flush;
 
 
 }

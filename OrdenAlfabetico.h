@@ -38,7 +38,7 @@ void Palabras (const std::string &filename, const std::string &m) {
                 Arbol.inorder();
             } else if (n > 0) {
                 //cout<<"el n es mayor q cero "<<endl;
-                Arbol.inordenexcluir(n); //no se pq m dice q no existe en el template
+                Arbol.inordenexcluir(n);
             } else {
                 cout << "La cantidad de palabras que quieren mostrarse (n) no puede ser un valor negativo" << "\n" << std::flush;
             }

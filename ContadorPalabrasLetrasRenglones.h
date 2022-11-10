@@ -41,6 +41,7 @@ int cantidad_renglones (const std:: string &filename)
     file.open( filename);
     int crenglones=0;
     // es el contador de la cantidad de renglones
+    //lee linea por linea
     if (file.is_open()) {
         std::string linea, word;
         while (std::getline(file, linea)) {
@@ -86,17 +87,32 @@ int palabrasDiferentes (const std::string &filename){
 }
 */
 
-void  Contador_Pal_Let_Ren (const std::string &filename)
-{
+void  Contador_Pal_Let_Ren (const std::string &filename) {
     ArbolBinario<std::string> Arbol;
     int cpalabras = cantpalabras(filename);
 
     cout << "Cantidad Letras:" << cantidad_letras(filename) << "\n" << std::flush;
     cout << "Cantidad Palabras: " << cpalabras << "\n" << std::flush;
     cout << "Cantidad Renglones: " << cantidad_renglones(filename) << "\n" << std::flush;
-  //  cout << "Palabras Diferentes:" << palabrasDiferentes(filename) << "\n" << std::flush;
+
+    std::ifstream file;
+    file.open(filename, std::ios::in);
+
+    if (file.is_open()) {
+        std::string word, linea;
+
+        while (std::getline(file, linea)) {
+
+            std::stringstream lineStream(linea);
+            while (std::getline(lineStream, word, ' ')) {
+                Arbol.insertar(word);
+            }
+        }
+
+        cout << "Palabras Diferentes:" << Arbol.contador << "\n" << std::flush;
 
 
+    }
 }
 #ifndef PARCIAL2_SIMESVARTANIAN_CONTADORPALABRASLETRASRENGLONES_H
 #define PARCIAL2_SIMESVARTANIAN_CONTADORPALABRASLETRASRENGLONES_H

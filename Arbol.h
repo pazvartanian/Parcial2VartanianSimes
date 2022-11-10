@@ -21,6 +21,9 @@ protected:
     NodoArbol<T> *root;
 
 public:
+
+    int contador = 0;
+
     ArbolBinario();
 
     void put(T data);
@@ -457,7 +460,10 @@ template<class T> void ArbolBinario<T>::insertar(std::string palabra) {
         } else {
             anterior->setRight(nuevo);
         }
+
+        contador++;
     }
+
 
 
 
@@ -494,6 +500,7 @@ template<class T> void ArbolBinario<T>::excluirpu(std::string arreglo[]) {
     // vamos a llamar al privado para pasarle la raiz
     excluirpri(root, arreglo);
 }
+
 //esta funcion es para ver si la palabra esta en el arreglo
 template<class T> bool ArbolBinario<T>:: estaPalabraEnArreglo (std::string palabra, std::string arreglo[]){
     int i=0;
@@ -513,7 +520,6 @@ template<class T> void ArbolBinario<T>:: excluirpri (NodoArbol<T> *r, std::strin
     if (r == nullptr) {
         return;
     }
-
     // para que imprima alfabeticamente
     excluirpri(r->getLeft(), arreglo);
     //si no esta en el arreglo la podemos imprimir
@@ -523,7 +529,7 @@ template<class T> void ArbolBinario<T>:: excluirpri (NodoArbol<T> *r, std::strin
     excluirpri(r->getRight(), arreglo);
 }
     //imprime izquierda, raiz y derecha lo hace en caso que la palabra no este en el arreglo.
-    //si da flaso la palabra en el arreglo imprimir el dato
+    //si da falso la palabra en el arreglo imprimir el dato
 
 
 template<class T> int ArbolBinario<T>::contar() {

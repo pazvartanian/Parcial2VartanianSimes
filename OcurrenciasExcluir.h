@@ -35,12 +35,11 @@ unsigned int miHashFunc2(string clave)
 void Excluirf (const std::string &filename, const std::string &igntxt)
 {
 
-
     std::ifstream file;
     file.open(filename ,std::ios::in);
 
     int cantp;
-    //ver como tener la cant de palabras
+
     cantp = cantpalabras(filename);
 
 
@@ -48,7 +47,7 @@ void Excluirf (const std::string &filename, const std::string &igntxt)
 
     if (file.is_open()) {
         std::string word, linea;
-//no estoy segura q son las cosas entre parentesis
+
         while (std::getline(file, linea)) {
 
             std::stringstream lineStream(linea);
@@ -56,7 +55,6 @@ void Excluirf (const std::string &filename, const std::string &igntxt)
                 word=corregirPalabra(word);
 
                 TH.put(word, 1);
-
             }
         }
     }
@@ -99,17 +97,15 @@ void Excluirf (const std::string &filename, const std::string &igntxt)
         while (bandera==0 && h<cantp) {
                 if (arrc[i] == arrign[h]) {
                     bandera = 1;
-                    //quiero q salga del bucle
+                    //quiero que salga del bucle
                 }
-
             h++;
         }
         if (bandera==0 && arrn[i]!=-1)
         {
-            cout <<  arrc[i] <<  arrn[i] << endl;
+            cout <<  arrc[i] <<  arrn[i] << "\n" << std::flush;
         }
         bandera=0;
-
     }
 }
 

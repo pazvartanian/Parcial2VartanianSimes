@@ -17,7 +17,6 @@ using namespace std;
 unsigned int miHashFunc4(string clave)
 {  const int p= 31 , m= 1e9 + 7 ;
 
-
     int key = 0 ;
     long p_pow = 1 ;
 
@@ -25,7 +24,6 @@ unsigned int miHashFunc4(string clave)
         clave[i]= tolower(clave[i]);
         key += (key + (clave[i] - 'a' + 1 ) * p_pow) % m ; //tolower nos cambia a minuscula
         p_pow = (p_pow * p )% m ;
-
     }
 
     return key ;
@@ -49,7 +47,7 @@ void Mostrar (const std::string &filename, std::string palabrasmostrar) {
     }
     std::ifstream file;
     file.open(filename, std::ios::in);
-    //ver como tener la cant de palabras
+
     cantp = cantpalabras(filename);
 
 
@@ -78,19 +76,17 @@ void Mostrar (const std::string &filename, std::string palabrasmostrar) {
     cantrepetidas = TH.arregloconclaves(arrc, cantrepetidas); //corregir esto
     TH.arregloconocurrencias(arrn);
 
-    cout << "ahora cantidad de repetidas: " << cantrepetidas << endl;
+    //cout << "ahora cantidad de repetidas: " << cantrepetidas << endl;
     //quickSort(arrn, arrc,   0, cantp-1);
 
-    cout<<"AHORA CON SELSHORT"<<endl;
+    //cout<<"AHORA CON SELSHORT"<<endl;
     shellsort(arrn, arrc, cantp);
-    cout << "ORDENADO" << endl;
-//cantp=cantp-cantrepetidas;
+    //cout << "ORDENADO" << endl;
+    //cantp=cantp-cantrepetidas;
         for (int i = cantp - 1; i > 0; i--) {
             if (arrn[i] != -1){
-                cout << "CLAVE " << arrc[i] << " OCURRENCIAS: " << arrn[i] << endl;
-
-        }}
-
-
+                cout << "CLAVE " << arrc[i] << " OCURRENCIAS: " << arrn[i] << "\n" << std::flush;
+            }
+    }
 }
 #endif //PARCIAL2_SIMESVARTANIAN_MOSTRAROCURRENCIAS1_H

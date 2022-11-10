@@ -15,13 +15,8 @@
 
 using namespace std;
 
-
-
-
 void Excluir (const std::string &filename, std::string palabrasexcluir)
 {
-
-
     int cantp;
     cantp= cantpalabras(filename);
     std::string arreglopalabrasexcluir[cantp];
@@ -61,7 +56,6 @@ void Excluir (const std::string &filename, std::string palabrasexcluir)
     }
 
 
-
     file.close();
     int arrn[cantp];
     std::string arrc[cantp];
@@ -76,13 +70,12 @@ void Excluir (const std::string &filename, std::string palabrasexcluir)
         while (bandera == 0 && h < cantp) {
             if (arrc[i] == arreglopalabrasexcluir[h]) {
                 bandera = 1; //lo quiero sacar del bucle
-
             }
             h++;
         }
         if (bandera == 0 && arrn[i] != -1){
-            cout <<  arrc[i]  << arrn[i] << endl;}
-
+            cout <<  arrc[i]  << arrn[i] << "\n" << std::flush;
+        }
         bandera = 0;
     }
 }

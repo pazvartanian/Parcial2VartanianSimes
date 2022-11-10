@@ -233,19 +233,19 @@ unsigned int HashMap<K, T>::hashFunc(K clave) { //Función de Hash por defecto
 
 template<class K, class T>
 void HashMap<K, T>::print() {
-    std::cout << "i" << "\t" << "Clave" << "\t" << "Valor" << std::endl;
-    std::cout << "---------------------" << std::endl;
+    std::cout << "i" << "\t" << "Clave" << "\t" << "Valor" << "\n" << std::flush;
+    std::cout << "---------------------" << "\n" << std::flush;
     for (int pos = 0; pos < tamanio; pos++) {
         std::cout << pos << "\t";
         if (tabla[pos] != NULL) {
             std::cout << tabla[pos]->getClave() << "\t";
             std::cout << tabla[pos]->getValor();
         }
-        std::cout << std::endl;
+        std::cout << "\n" << std::flush;
     }
 }
 
-//metodo q m devuelva arreglo con ocurrencias
+//metodo que me devuelva arreglo con ocurrencias
 template<class K, class T>
 void HashMap<K, T>::arregloconocurrencias(T arrn[]) {
     for (int i = 0; i < tamanio; i++) {
@@ -256,18 +256,14 @@ void HashMap<K, T>::arregloconocurrencias(T arrn[]) {
             arrn[i] = listacolisiones4.getOcurr(0);
 
             listacolisiones4.remover(0);
-
         }
         else if (tabla[i]==NULL)
         {
             arrn[i]= -1;
         }
-
     }
-
 }
-template<class K, class T>
-int HashMap<K, T>::arregloconclaves(K *arrc, int cantrepetidas) {
+template<class K, class T> int HashMap<K, T>::arregloconclaves(K *arrc, int cantrepetidas) {
 
     for (int i = 0; i < tamanio; i++) {
 
@@ -282,12 +278,10 @@ int HashMap<K, T>::arregloconclaves(K *arrc, int cantrepetidas) {
             arrc[i]= " NULL";
             cantrepetidas++;
         }
-
     }
     return cantrepetidas;
 
 }
-
 
 #endif //PARCIAL2_SIMESVARTANIAN_HASHMAP_H
 

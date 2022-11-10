@@ -49,6 +49,12 @@ public:
 
     void excluirpu (std::string arreglo[]);
 
+    /*int contarnodos (){
+        int nodos=0;
+        nodos=contarnodos(root);
+        return nodos;
+    };*/
+
     // void excluirfpu  (std::string arreglo[]);
 
 private:
@@ -66,7 +72,7 @@ private:
     void inexc (NodoArbol<T> *r, int n);
     void excluirpri (NodoArbol<T> *r, string arreglo[]);
     bool estaPalabraEnArreglo (string palabra, std::string arreglo[]);
-    // void excluirfpri (NodoArbol<T> *r, string arreglo[]);
+    int contarnodos (NodoArbol<T> *r);
 
 };
 
@@ -281,7 +287,7 @@ template <class T>
 void ArbolBinario<T>::preorder()
 {
     preorder(root);
-    std::cout << std::endl;
+     std::cout << "\n" << std::flush;
 }
 
 template <class T>
@@ -306,7 +312,7 @@ void ArbolBinario<T>::inorder()
 
     inorder(root);
 
-    std::cout << std::endl;
+    std::cout << "\n" << std::flush;
 
 }
 
@@ -408,7 +414,7 @@ template <class T> bool ArbolBinario<T>::palabraRepetida(NodoArbol<T> *r, string
 template<class T> std::string ArbolBinario<T>::corregirPalabra (std::string palabra) {
     // vamos a correguir la palabra para mostarlas sin signos de explamacion, interrogacion ni putuacion
     //recorremos toda la palabra y borramos signos .
-    std::string caracteres = "?.!;¿¡,-:()$#@%`" ;
+    std::string caracteres = "?.!;¿¡,-:()$#@%`+=^_[]{}<>" ;
 
     for (char c: caracteres) {
         palabra.erase(std::remove(palabra.begin(), palabra.end(), c), palabra.end());
@@ -434,6 +440,7 @@ template<class T> void ArbolBinario<T>::insertar(std::string palabra) {
         //creo un nodo anterior y uno para recorrer
         NodoArbol<string> *anterior = NULL;
         NodoArbol<string> *recorrer = this->root;
+
 
 
         while (recorrer != NULL) {
@@ -516,43 +523,16 @@ template<class T> void ArbolBinario<T>:: excluirpri (NodoArbol<T> *r, std::strin
     }
     excluirpri(r->getRight(), arreglo);
 }
-
     //imprime izquierda, raiz y derecha lo hace en caso que la palabra no este en el arreglo.
     //si da flaso la palabra en el arreglo imprimir el dato
 
-
-
-
-//template<class T> void ArbolBinario<T>::excluirfpu(std::string arreglo[]) {
-    // vamos a llamar al privado para pasarle la raiz
-   // excluirf(root, arreglo);
-// }
-
-/*template<class T> void ArbolBinario<T>::excluirfpri(NodoArbol<T> *r, std::string arreglo[]) {
-   //armamos un arreglo con todoas las palabras del archivo
-    // va recibir el nombre, va a contar y hacer el arreglo
-
-    std::ifstream file_igntxt;
-    string linea, word;
-    string arreglo_ignorar[cantpalabras(arreglo)];
-   //  cout << endl << "cant palabras: " << arreglo_ignorar->length() << endl << endl;
-    int i;
-
-    file_igntxt.open(arreglo, std::ios::in);
-
-    if (file_igntxt.is_open()) {
-        while (std::getline(file_igntxt, linea)) {
-            i=0;
-
-            std::stringstream lineStream(linea);
-            while (std::getline(lineStream, word, ' ')) {
-                arreglo_ignorar[i]= word;
-                i++;
-                //el i va agregando las palabras al arreglo
-            }
+    /*template<class T> int ArbolBinario<T>::contarnodos(NodoArbol<T> *r)
+    {
+        if ( r != nullptr){
+            return 1+ contarnodos(r->getLeft()) + contarnodos(r->getRight());
         }
+        return 0;
     }
-    excluir(root, arreglo_ignorar);
-}
-*/
+     */
+
 #endif //PARCIAL2_SIMESVARTANIAN_ARBOL_H

@@ -13,6 +13,11 @@
 #include <string>
 #include "Corregir.h"
 
+// con esta funcion ponemos las palabras ingresado por el usuario en un arreglo
+// luego usamos el metodo excluir que nos permite no insertarla en el arbol
+//una vez que todas las palabras (menos las del arreglo) estan en el arbol
+// lo imprimimos inorden para que se impriman alfabeticamente
+
 void ExcluirpalabrasAlf (const std::string &filename, std::string arreglo_palabras) {
 
         std::ifstream file;
@@ -42,7 +47,6 @@ void ExcluirpalabrasAlf (const std::string &filename, std::string arreglo_palabr
             Arbol.excluirpu(arreglo);
             Arbol.inorder();
         }
-
     }
 
 #endif //PARCIAL2_SIMESVARTANIAN_EXCLUIR_PALABRA_ALF_H

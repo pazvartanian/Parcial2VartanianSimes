@@ -14,12 +14,12 @@
 
 void Palabras (const std::string &filename, const std::string &m) {
     //creo arrglo para hacer una pruba del metodo excluir
-    string arreglo_palabras[] = {"ejercito", "revolucion", "guerras", "vida"};
+    // string arreglo_palabras[] = {"ejercito", "revolucion", "guerras", "vida"};
 
     if (esNumero(m)) {
-        cout << "ENTRO A ARBOL ORDEN ALFABETICO" << endl;
+       // cout << "ENTRO A ARBOL ORDEN ALFABETICO" << endl;
         int n = stoi(m);
-        /* string filename = "C:\\Users\\Usuario\\Desktop\\parcial 2\\Parcial2VartanianSimes\\texto";*/
+
         std::ifstream file;
         file.open(filename, std::ios::in);
         ArbolBinario<std::string> Arbol;
@@ -37,10 +37,10 @@ void Palabras (const std::string &filename, const std::string &m) {
             if (n == 0) {
                 Arbol.inorder();
             } else if (n > 0) {
-                cout<<"el n es mayor q cero "<<endl;
+                //cout<<"el n es mayor q cero "<<endl;
                 Arbol.inordenexcluir(n); //no se pq m dice q no existe en el template
             } else {
-                cout << "La cantidad de palabras que quieren mostrarse (n) no puede ser un valor negativo" << endl;
+                cout << "La cantidad de palabras que quieren mostrarse (n) no puede ser un valor negativo" << "\n" << std::flush;
             }
         }
 

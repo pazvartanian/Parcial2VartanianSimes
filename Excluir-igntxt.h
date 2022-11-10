@@ -13,8 +13,6 @@
 #include <string>
 #include "Corregir.h"
 
-//void ExcluirpalabraIgntxt (const std::string &filename, std::string arreglo_palabras);
-
 // buscamos llenar un arreglo con las palabras del texto a ignorar
 // luego con el metodo anterior de excluir las excluimos del texto
 // para luego poder insertar e imprimir el arbol ordenado alfabeticamente

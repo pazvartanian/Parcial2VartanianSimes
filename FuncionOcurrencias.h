@@ -23,7 +23,7 @@ void Ocurrencias (const std::string &filename, const std::string &m ) {
         std::ifstream file;
         file.open(filename, std::ios::in);
         int cantp;
-        //ver como tener la cant de palabras
+
         cantp = cantpalabras(filename);
 
 
@@ -38,8 +38,6 @@ void Ocurrencias (const std::string &filename, const std::string &m ) {
                 while (std::getline(lineStream, word, ' ')) {
                     word = corregirPalabra(word);
                     TH.put(word, 1);
-
-
                 }
             }
         }
@@ -59,18 +57,15 @@ void Ocurrencias (const std::string &filename, const std::string &m ) {
         if (n==0) {
             for (int i = cantp - 1; i > 0; i--) {
                 if (arr_cant_ocurrencias[i] != -1)
-                    cout << arrc[i]  << arr_cant_ocurrencias[i] << endl;
-
+                    cout << arrc[i]  <<" "<<  arr_cant_ocurrencias[i] << "\n" << std::flush;
             }
 
         } else if (n > 0 && n < cantp) {
             for (int i = cantp - 1; i > cantp - 1 - n; i--) {
                 if (arr_cant_ocurrencias[i] != -1)
-                    cout <<  arrc[i] <<  arr_cant_ocurrencias[i] << endl;
-
+                    cout <<  arrc[i] <<" "<<  arr_cant_ocurrencias[i] << "\n" << std::flush;
             }
         }
-
     }
 }
 

@@ -15,7 +15,7 @@
 std::string corregirPalabra (std::string palabra) {
 // vamos a correguir la palabra para mostarlas sin signos de explamacion, interrogacion ni putuacion
 //recorremos toda la palabra y borramos signos .
-    std::string caracteres = "(?.!;¿¡,:}]/*)-#$%^@~'" ; //ver como hacer para q saque el "
+    std::string caracteres = "(?.!;¿¡,:}]/*)-#$%^@~'" ;
     for (char c: caracteres) {
         palabra.erase(std::remove(palabra.begin(), palabra.end(), c), palabra.end());
     }
